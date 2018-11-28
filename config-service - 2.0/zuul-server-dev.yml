@@ -1,0 +1,42 @@
+server:
+    port: 41200
+
+spring:
+    servlet:
+      multipart:
+        enabled: true
+        max-file-size: 50MB #(这里是限制的文件大小)
+        max-request-size: 50MB #(这里是限制的文件大小)
+        
+zuul:  
+    host:  
+        socket-timeout-millis: 60000  
+        connect-timeout-millis: 60000 
+        
+hystrix:  
+    command:  
+        default:  
+            execution:  
+                isolation:  
+                    thread:  
+                        timeoutInMilliseconds: 60000  
+
+ribbon:  
+    ReadTimeout: 60000  
+    ConnectTimeout: 60000 
+
+#自动配置  --现在 采用默认配置
+#Zuul会为Eureka中的每个服务都自动创建一个默认的路由规则，这些默认规则的path会使用serviceId配置的服务名作为请求前缀，如方式二
+
+
+#手动配置：
+#方式一 等价于方式二path与serviceId组合使用的配置方式
+#zuul:
+#  routes:
+#    user-service: /user-service/**
+#方式二
+#zuul:
+#  routes:
+#    user-service:
+#      path: /user-service/**
+#      serviceId: user-service

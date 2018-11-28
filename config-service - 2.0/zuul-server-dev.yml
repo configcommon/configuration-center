@@ -1,10 +1,10 @@
 server:
     port: 41200
-spring:
-    cloud：
-        config:
-            discovery:
-                instanceId: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+# spring:
+#     cloud：
+#         config:
+#             discovery:
+#                 instanceId: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
 spring:
     servlet:
       multipart:

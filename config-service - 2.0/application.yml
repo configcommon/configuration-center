@@ -11,8 +11,8 @@ spring:
   redis:
     database: 0
     host: 127.0.0.1
-    password: Neco.wosh77@0217*$%
-    port: 43709
+    password: admin
+    port: 6379
   rabbitmq:
     host: 127.0.0.1
     port: 5672

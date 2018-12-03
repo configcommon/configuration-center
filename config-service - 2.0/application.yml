@@ -13,6 +13,12 @@ spring:
     host: 127.0.0.1
     password: admin
     port: 6379
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1
+        min-idle: 0
   rabbitmq:
     host: 127.0.0.1
     port: 5672

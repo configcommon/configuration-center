@@ -38,6 +38,22 @@ spring:
       # 优先使用以192.168.开头的IP去注册中心注册
       preferred-networks:
         - ^192\.168.*
+#Actuator的使用参考https://www.jianshu.com/p/1aadc4c85f51
+management:
+  endpoint:
+    health:
+      show-details: always
+      sensitive: false
+#  endpoints:  
+#    web:
+#      exposure:
+#        include: "*"
+#  health:
+#    redis:
+#      enabled: false        
+  security:
+    enabled: false
+
 hystrix:
   command:
     default:

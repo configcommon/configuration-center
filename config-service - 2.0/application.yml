@@ -38,6 +38,16 @@ spring:
       # 优先使用以192.168.开头的IP去注册中心注册
       preferred-networks:
         - ^192\.168.*
+  messages:
+    #xd-common-global-config中配置了公共的资源文件，并把国际化资源文件打包到与classes同级目录，目的是为了在jar包中可以读取到国际化配置文件，
+    # 可以在项目中覆盖xd-common-global-config的国际化配置 
+    # 配置国际化资源文件，配置多个资源文件使用逗号分隔，
+    # 使用说明：
+    # 1、basename配置多个目录会先查找当前项目中是否存在，再查找jar中是否存在资源文件
+    # 2、资源文件key-value的读取顺序与配置顺序一致，及先在locale/messages查找是否存在key-value，不存在则在locale/securityMessages中再次查找
+    # 3、当前项目locale/messages会完全覆盖xd-common-global-config的国际化配置的配置
+    basename: locale/messages, locale/securityMessages
+    
 #Actuator的使用参考https://www.jianshu.com/p/1aadc4c85f51
 management:
   endpoint:
